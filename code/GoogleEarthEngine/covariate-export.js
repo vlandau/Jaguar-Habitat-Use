@@ -124,7 +124,7 @@ var export_date = "10122020";
 /// Static/non-dynamic covariates
 var ALOS = ee.Image("JAXA/ALOS/AW3D30/V2_2").select("AVE_DSM").rename("elev");
 var slope = ee.Algorithms.Terrain(ALOS).select('slope');
-var roads = ee.FeatureCollection('users/VincentLandau/Jaguar/habitatCov/OSMroadsUpdated20180508'); // open street maps 2017 filtered 
+var roads = ee.FeatureCollection('users/VincentLandau/Jaguar/habitatCov/OSMroadsUpdated20180508');
 var roadsSub = roads.filter(ee.Filter.and(ee.Filter.or(ee.Filter.eq('fclass','primary_link'),
                                          ee.Filter.eq('fclass','primary'),
                                          ee.Filter.eq('fclass','motorway'),
@@ -134,11 +134,12 @@ var roadsSub = roads.filter(ee.Filter.and(ee.Filter.or(ee.Filter.eq('fclass','pr
                                          ee.Filter.eq('fclass','secondary_link'),
                                          ee.Filter.eq('fclass','tertiary'),
                                          ee.Filter.eq('fclass','tertiary_link'),
-                                         ee.Filter.bounds(geometry2)),ee.Filter.bounds(geometry3).not()));
+                                         ee.Filter.bounds(geometry2)),ee.Filter.bounds(geometry3).not())); // remove misclassifications
 var sett = ee.Image("users/VincentLandau/Jaguar/settlements");
 var settLine = ee.FeatureCollection("users/VincentLandau/Jaguar/StudyAreaSettlementLines");
 var riparian = ee.Image('users/VincentLandau/Jaguar/riparianTiles/riparianClean');
 var riparianDist = ee.Image("users/VincentLandau/Jaguar/riparianTiles/RiparianDistance30mAlbersInt").rename(['riparianDist']);
+var water = ee.Image("users/VincentLandau/Jaguar/water/waterMosaic");
 var waterDist = ee.Image("users/VincentLandau/Jaguar/water/water30mAlbersDistInt");
 print(riparian)
 

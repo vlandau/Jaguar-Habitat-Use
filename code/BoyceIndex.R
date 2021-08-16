@@ -1,4 +1,5 @@
 # n <- sum(c(0,0,0,0,0,0,8,452,892,841))
+# The ranks and values were manually copy/pasted for each data data type from numbers generated with code/GoogleEarthEngine/sample-predictions-for-boyce-index.js
 devtools::install_github("rasmusab/bayesian_first_aid")
 library(BaysianFirstAid)
 
