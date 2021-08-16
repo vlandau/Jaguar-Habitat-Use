@@ -33,7 +33,6 @@ occupancy$LogDistSett <- log(occupancy$Dist_Sett_m)
 
 ## Presence data
 presence <- read.csv("data/presence_background_data/PresenceAttr10122020.csv")
-presence <- presence[-55,] #remove double observation
 presence$y <- 1
 presence$LogDistRoad <- log(presence$Dist_Road_m)
 presence$LogDistSett <- log(presence$Dist_Sett_m)
